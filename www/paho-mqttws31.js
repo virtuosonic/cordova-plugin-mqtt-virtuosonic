@@ -2177,7 +2177,17 @@ Paho.MQTT = (function(global) {
       }
       ;
     };
-
+	////////
+	this._getPayloadUint8 = function(){
+		return new Uint8Array(payload,0,1)[0];
+	};
+	this._getPayloadUint32 = function(){
+		return new Uint32Array(payload,0,1)[0];
+	};
+	this._getPayloadFloat= function(){
+		return new Float32Array(payload,0,1)[0];
+	};
+	///
     var destinationName = undefined;
     this._getDestinationName = function() {
       return destinationName;
@@ -2227,7 +2237,15 @@ Paho.MQTT = (function(global) {
     get payloadBytes() {
       return this._getPayloadBytes();
     },
-
+	get payloadUint8() {
+      return this._getPayloadUint8();
+	},
+	get payloadUint32() {
+      return this._getPayloadUint32();
+	},
+	get payloadFloat() {
+      return this._getPayloadFloat();
+	},
     get destinationName() {
       return this._getDestinationName();
     },
