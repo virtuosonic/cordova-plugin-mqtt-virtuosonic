@@ -65,9 +65,10 @@ MQTTClient.prototype._connectionLost = function() {
 };
 
 MQTTClient.prototype._onMessageArrived = function(msg) {
-  this.emit('data', msg);
-  if (!SYSTEM_EVENTS[msg.destinationName])
-    this.emit(msg.destinationName, msg.payloadString);
+  //this.emit('data', msg);
+  //if (!SYSTEM_EVENTS[msg.destinationName])
+  //  this.emit(msg.destinationName, msg.payloadString);
+  this.emit('message', msg);
 };
 
 MQTTClient.prototype._shouldReconnect = function() {
