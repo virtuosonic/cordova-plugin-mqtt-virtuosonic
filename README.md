@@ -1,16 +1,19 @@
-## Pure JavaScript MQTT client library. Wrapper for paho.js by [BeeToo](http://beetoo.me) ##
+## Pure JavaScript MQTT client library. Wrapper for paho.js by [virtuosonic](http://machines.virtuosonic-sdc.com) ##
+
+### Preamble 
+This is a fork of the plugin [cordova-plugin-mqtt-pahojs](https://github.com/estbeetoo/cordova-plugin-mqtt-pahojs) that break compatibility by changing the api.
 
 ### Installation
 
 For Cordova CLI users:
 
 ```
-cordova plugin add cordova-plugin-mqtt-pahojs
+cordova plugin add https://github.com/virtuosonic/cordova-plugin-mqtt-virtuosonic.git
 ```
 
 ### Usage example
 
-```
+``` javascript
 new window.plugins.mqtt({
             uri: MQTT_URI,
             keepAliveInterval: 120,
