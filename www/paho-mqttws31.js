@@ -2185,7 +2185,12 @@ Paho.MQTT = (function(global) {
 		return new Uint32Array(payload,0,1)[0];
 	};
 	this._getPayloadFloat= function(){
-		return new Float32Array(payload,0,1)[0];
+		const buffer = new ArrayBuffer(4);
+		const uint8Array = new Uint8Array(buffer);
+		uint8Array.set(payload);
+		const dataView = new DataView(buffer);
+		const floatNumber = dataView.getFloat32(0, true); // true for little-endian
+		return floatNumber;
 	};
 	///
     var destinationName = undefined;
